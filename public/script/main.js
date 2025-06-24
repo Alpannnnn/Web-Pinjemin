@@ -46,7 +46,7 @@ if (window.location.pathname.includes("login.html")) {
       const data = Object.fromEntries(formData);
 
       try {
-        const response = await fetch("http://localhost:3000/api/auth/login", {
+        const response = await fetch("/api/auth/login", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(data),
@@ -93,7 +93,7 @@ if (window.location.pathname.includes("login.html")) {
       const data = Object.fromEntries(formData);
 
       try {
-        const response = await fetch("http://localhost:3000/api/auth/register", {
+        const response = await fetch("/api/auth/register", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(data),
@@ -132,15 +132,15 @@ function loadContent(menu, sortBy = '', filterRole = '', sortByDirection = 'asc'
 
   let url = '';
   if (menu === 'pengguna') {
-      url = 'http://localhost:3000/api/admin/pengguna';
+      url = '/api/admin/pengguna';
       if (roleFilterContainer) roleFilterContainer.style.display = 'block'; // Tampilkan filter role untuk pengguna
       if (showAllDataButton) showAllDataButton.style.display = 'block'; // Tampilkan tombol "Semua Data"
   } else if (menu === 'barang') {
-      url = 'http://localhost:3000/api/admin/barang';
+      url = '/api/admin/barang';
       if (managedByUserButton) managedByUserButton.style.display = 'block'; // Tampilkan tombol "Dikelola Pengguna" untuk barang
       if (showAllDataButton) showAllDataButton.style.display = 'block'; // Tampilkan tombol "Semua Data"
   } else if (menu === 'laporan') {
-      url = 'http://localhost:3000/api/admin/laporan';
+      url = '/api/admin/laporan';
       if (showAllDataButton) showAllDataButton.style.display = 'block'; // Tampilkan tombol "Semua Data"
   }
 

@@ -22,7 +22,7 @@ window.tampilkanBarang = async function () {
   if (!userId) return;
 
   try {
-    const res = await fetch(`http://localhost:3000/api/barang/penyedia/${userId}`);
+    const res = await fetch(`/api/barang/penyedia/${userId}`);
     if (!res.ok) throw new Error("Gagal ambil data barang");
 
     const items = await res.json();
@@ -91,7 +91,7 @@ window.tampilkanBarang = async function () {
                 return;
               }
 
-              fetch('http://localhost:3000/api/barang/update-stok/' + id, {
+              fetch('/api/barang/update-stok/' + id, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ jumlah })
@@ -113,7 +113,7 @@ window.tampilkanBarang = async function () {
           <div class="items">
             ${items.map(i => `
               <div class="item">
-                <img src="http://localhost:3000/uploads/${i.foto}" alt="${i.nama_barang}" />
+                <img src="/uploads/${i.foto}" alt="${i.nama_barang}" />
                 <h3>${i.nama_barang}</h3>
                 <p>${i.deskripsi}</p>
                 <div class="qty">Jumlah: ${i.jumlah}</div>
@@ -164,7 +164,7 @@ window.tambahBarang = async function () {
   formData.append("foto", imageInput.files[0]);
 
   try {
-    const res = await fetch("http://localhost:3000/api/barang/penyedia", {
+    const res = await fetch("/api/barang/penyedia", {
       method: "POST",
       body: formData
     });

@@ -295,7 +295,7 @@ function tutupInvoice() {
 // Fungsi untuk memuat semua barang saat halaman dimuat
 async function loadAllBarang() {
   try {
-    const res = await fetch(`http://localhost:3000/api/barang`); // Mengambil semua barang dari rute /api/barang
+    const res = await fetch(`/api/barang`); // Mengambil semua barang dari rute /api/barang
     if (!res.ok) {
         const errorText = await res.text();
         throw new Error("Gagal mengambil semua data barang dari server: " + errorText);
