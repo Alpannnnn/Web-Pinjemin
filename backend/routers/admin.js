@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router(); // Define a new router instance
-const adminController = require('../controllers/adminController'); // Ensure the path is correct
+const adminController = require('../controllers/admincontroller'); // Ensure the path is correct
 
 // 1. Ambil semua user
 router.get('/pengguna', adminController.getAllUsers);
